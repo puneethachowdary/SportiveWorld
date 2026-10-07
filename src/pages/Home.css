@@ -1,0 +1,776 @@
+/* =========================================
+   SPORTIVE WORLD - HOME PAGE
+   ========================================= */
+
+.home-page {
+  background: #080d16;
+  color: #ffffff;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+
+/* =========================================
+   HERO
+   ========================================= */
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 120px 8% 80px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 75% 45%,
+      rgba(37, 99, 235, 0.18),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #080d16,
+      #0b1220
+    );
+}
+
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+
+/* Decorative glowing circles */
+
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+}
+
+.glow-one {
+  width: 300px;
+  height: 300px;
+  background: #2563eb;
+  right: 10%;
+  top: 25%;
+}
+
+.glow-two {
+  width: 220px;
+  height: 220px;
+  background: #ef4444;
+  right: 35%;
+  bottom: 5%;
+}
+
+
+/* Floating sports */
+
+.floating-ball {
+  position: absolute;
+  font-size: 40px;
+  opacity: 0.15;
+  animation: float 6s ease-in-out infinite;
+}
+
+.ball-one {
+  right: 15%;
+  top: 25%;
+}
+
+.ball-two {
+  right: 30%;
+  top: 65%;
+  animation-delay: 1.5s;
+}
+
+.ball-three {
+  right: 8%;
+  bottom: 15%;
+  animation-delay: 3s;
+}
+
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-25px) rotate(12deg);
+  }
+
+}
+
+
+/* Hero content */
+
+.hero-content {
+  max-width: 850px;
+  position: relative;
+  z-index: 2;
+}
+
+
+.hero-small-text {
+  color: #60a5fa;
+  letter-spacing: 5px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(70px, 12vw, 170px);
+  line-height: 0.82;
+  letter-spacing: -7px;
+  font-weight: 900;
+}
+
+
+.hero h1 span {
+  display: block;
+  color: transparent;
+  -webkit-text-stroke: 2px #ffffff;
+}
+
+
+.hero-description {
+  max-width: 600px;
+  margin: 45px 0 35px;
+  color: #a8b2c1;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+
+/* Hero buttons */
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+
+.primary-btn,
+.secondary-btn {
+  border: none;
+  padding: 15px 25px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+
+.primary-btn {
+  background: #2563eb;
+  color: white;
+}
+
+
+.primary-btn span {
+  margin-left: 12px;
+  font-size: 18px;
+}
+
+
+.primary-btn:hover {
+  background: #3b82f6;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.3);
+}
+
+
+.secondary-btn {
+  background: transparent;
+  color: white;
+  border: 1px solid #334155;
+}
+
+
+.secondary-btn:hover {
+  background: #ffffff;
+  color: #080d16;
+  transform: translateY(-3px);
+}
+
+
+/* Hero scroll */
+
+.hero-bottom {
+  position: absolute;
+  bottom: 30px;
+  left: 8%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #64748b;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+
+.scroll-line {
+  width: 70px;
+  height: 1px;
+  background: #475569;
+}
+
+
+/* =========================================
+   COMMON SECTION
+   ========================================= */
+
+.sports-section,
+.matches-section {
+  padding: 120px 8%;
+}
+
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 40px;
+  margin-bottom: 55px;
+}
+
+
+.section-label {
+  color: #60a5fa;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  margin-bottom: 12px;
+}
+
+
+.section-heading h2 {
+  font-size: clamp(35px, 5vw, 60px);
+  margin: 0;
+  letter-spacing: -2px;
+}
+
+
+.section-description {
+  max-width: 420px;
+  color: #8b98aa;
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   SPORTS CARDS
+   ========================================= */
+
+.sports-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+
+.sport-card {
+  min-height: 400px;
+  padding: 30px;
+  position: relative;
+  border-radius: 16px;
+  border: 1px solid #1e293b;
+  background: #0d1421;
+  overflow: hidden;
+  transition: 0.4s ease;
+}
+
+
+.sport-card::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  right: -70px;
+  top: -70px;
+  opacity: 0.15;
+  transition: 0.5s ease;
+}
+
+
+.sport-card.blue::before {
+  background: #2563eb;
+}
+
+
+.sport-card.red::before {
+  background: #ef4444;
+}
+
+
+.sport-card.orange::before {
+  background: #f59e0b;
+}
+
+
+.sport-card:hover {
+  transform: translateY(-10px);
+  border-color: #334155;
+}
+
+
+.sport-card:hover::before {
+  transform: scale(2);
+}
+
+
+.sport-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.sport-number {
+  color: #475569;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+.sport-icon {
+  font-size: 45px;
+}
+
+
+.sport-card-content {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  right: 30px;
+}
+
+
+.sport-card h3 {
+  font-size: 32px;
+  margin: 0 0 12px;
+}
+
+
+.sport-card p {
+  color: #8794a7;
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+
+.card-link {
+  margin-top: 15px;
+  background: none;
+  border: none;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+}
+
+
+.card-link span {
+  margin-left: 10px;
+  color: #60a5fa;
+  transition: 0.3s;
+}
+
+
+.card-link:hover span {
+  margin-left: 18px;
+}
+
+
+/* =========================================
+   MATCHES
+   ========================================= */
+
+.matches-section {
+  background: #0b111d;
+}
+
+
+.matches-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+
+.match-card {
+  background: #101827;
+  border: 1px solid #1e293b;
+  border-radius: 14px;
+  padding: 25px;
+  transition: 0.3s ease;
+}
+
+
+.match-card:hover {
+  transform: translateY(-7px);
+  border-color: #334155;
+}
+
+
+.match-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #1e293b;
+}
+
+
+.match-sport {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+
+.match-status {
+  color: #22c55e;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+
+.teams {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+}
+
+
+.team {
+  text-align: center;
+  width: 40%;
+}
+
+
+.team-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  border-radius: 50%;
+  background: #1e293b;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+
+.team h3 {
+  font-size: 14px;
+  margin: 12px 0 8px;
+}
+
+
+.team strong {
+  font-size: 18px;
+}
+
+
+.vs {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+
+.match-details {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #334155;
+  background: transparent;
+  color: #ffffff;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+.match-details:hover {
+  background: #ffffff;
+  color: #080d16;
+}
+
+
+/* =========================================
+   STATS
+   ========================================= */
+
+.stats-section {
+  padding: 120px 8%;
+  background: #080d16;
+}
+
+
+.stats-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+
+.stats-title h2 {
+  font-size: clamp(40px, 5vw, 70px);
+  line-height: 1;
+  margin: 0;
+  letter-spacing: -3px;
+}
+
+
+.stats-title h2 span {
+  color: #60a5fa;
+}
+
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+
+.stat-card {
+  padding: 30px;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  background: #0d1421;
+}
+
+
+.stat-card h3 {
+  margin: 0;
+  font-size: 45px;
+}
+
+
+.stat-card p {
+  color: #64748b;
+  margin: 8px 0 0;
+}
+
+
+/* =========================================
+   CTA
+   ========================================= */
+
+.cta-section {
+  padding: 80px 8%;
+  background: #0b111d;
+}
+
+
+.cta-box {
+  position: relative;
+  overflow: hidden;
+  padding: 70px;
+  border-radius: 20px;
+  background:
+    radial-gradient(
+      circle at 90% 50%,
+      rgba(37, 99, 235, 0.25),
+      transparent 35%
+    ),
+    #101827;
+  border: 1px solid #1e293b;
+}
+
+
+.cta-content {
+  max-width: 600px;
+}
+
+
+.cta-content h2 {
+  font-size: clamp(45px, 7vw, 80px);
+  margin: 0;
+  line-height: 0.95;
+}
+
+
+.cta-content h2 span {
+  color: #ef4444;
+}
+
+
+.cta-content p:not(.section-label) {
+  color: #8b98aa;
+  line-height: 1.7;
+  margin: 25px 0;
+}
+
+
+.cta-symbol {
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 160px;
+  opacity: 0.15;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.footer {
+  padding: 50px 8%;
+  background: #060a11;
+}
+
+
+.footer-logo {
+  font-size: 24px;
+  font-weight: 900;
+}
+
+
+.footer-logo span {
+  color: #60a5fa;
+}
+
+
+.footer > p {
+  color: #64748b;
+}
+
+
+.footer-line {
+  height: 1px;
+  background: #1e293b;
+  margin: 35px 0 20px;
+}
+
+
+.footer .copyright {
+  font-size: 12px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 900px) {
+
+  .sports-grid,
+  .matches-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+  .stats-content {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .hero {
+    padding: 110px 6% 70px;
+  }
+
+
+  .hero h1 {
+    font-size: 70px;
+    letter-spacing: -4px;
+  }
+
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+
+  .sports-section,
+  .matches-section,
+  .stats-section {
+    padding: 80px 6%;
+  }
+
+
+  .sports-grid,
+  .matches-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .sport-card {
+    min-height: 350px;
+  }
+
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+  .stat-card {
+    padding: 20px;
+  }
+
+
+  .stat-card h3 {
+    font-size: 32px;
+  }
+
+
+  .cta-section {
+    padding: 50px 6%;
+  }
+
+
+  .cta-box {
+    padding: 40px 25px;
+  }
+
+
+  .cta-symbol {
+    font-size: 90px;
+    right: 5%;
+  }
+
+
+  .hero-bottom {
+    display: none;
+  }
+
+}
+/* React Router links used as cards */
+
+.sport-card,
+.quick-card {
+  text-decoration: none;
+  color: inherit;
+}

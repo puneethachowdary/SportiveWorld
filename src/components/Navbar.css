@@ -1,0 +1,404 @@
+/* =========================================
+   SPORTIVE WORLD — NAVBAR
+   Editorial / Minimal / Premium
+   ========================================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  width: 100%;
+
+  background: var(--nav-bg);
+  color: var(--text);
+
+  border-bottom: 1px solid var(--border);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease;
+}
+
+
+/* =========================================
+   NAVBAR CONTAINER
+   ========================================= */
+
+.navbar-container {
+  width: 92%;
+  max-width: 1400px;
+  min-height: 72px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* =========================================
+   LOGO
+   ========================================= */
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+
+  text-decoration: none;
+  color: var(--text);
+
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo:hover {
+  transform: translateY(-1px);
+}
+
+.navbar-logo img {
+  width: 120px;
+  height: 120px;
+
+  object-fit: contain;
+  display: block;
+
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.navbar-logo:hover img {
+  transform: scale(1.05);
+}
+
+
+/* =========================================
+   NAVIGATION LINKS
+   ========================================= */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+
+  gap: 4px;
+}
+
+.nav-links a {
+  position: relative;
+
+  padding: 10px 13px;
+
+  color: var(--text);
+
+  text-decoration: none;
+
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+
+  border-radius: 2px;
+
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+/* Hover */
+
+.nav-links a:hover {
+  color: var(--accent);
+  background: var(--surface);
+
+  transform: translateY(-1px);
+}
+
+
+/* Underline */
+
+.nav-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 4px;
+
+  width: 0;
+  height: 2px;
+
+  background: var(--accent);
+
+  transform: translateX(-50%);
+
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 45%;
+}
+
+
+/* Active */
+
+.nav-links a.active-link {
+  color: var(--accent);
+  background: transparent;
+}
+
+.nav-links a.active-link::after {
+  width: 45%;
+}
+
+
+/* =========================================
+   THEME TOGGLE
+   ========================================= */
+
+.theme-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-left: 14px;
+}
+
+.theme-toggle-wrapper .bb8-toggle {
+  margin-top: 0;
+
+  /*
+    Keeps the original BB-8 design,
+    while making it fit the navbar.
+  */
+  font-size: 8px;
+}
+
+
+/* =========================================
+   MOBILE MENU BUTTON
+   ========================================= */
+
+.menu-button {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  padding: 8px;
+
+  border: none;
+  border-radius: 3px;
+
+  background: var(--text);
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.menu-button:hover {
+  transform: translateY(-1px);
+}
+
+.menu-button span {
+  display: block;
+
+  width: 24px;
+  height: 2px;
+
+  margin: 5px auto;
+
+  background: var(--bg);
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+
+/* =========================================
+   MOBILE NAVIGATION
+   ========================================= */
+
+@media (max-width: 1100px) {
+
+  .nav-links {
+    gap: 0;
+  }
+
+  .nav-links a {
+    padding: 9px 9px;
+    font-size: 0.82rem;
+  }
+
+}
+
+
+/* =========================================
+   TABLET / MOBILE
+   ========================================= */
+
+@media (max-width: 900px) {
+
+  .navbar-container {
+    min-height: 68px;
+  }
+
+
+  /* Hamburger */
+
+  .menu-button {
+    display: block;
+  }
+
+
+  /* Navigation */
+
+  .nav-links {
+    position: absolute;
+
+    top: 68px;
+    left: 0;
+
+    width: 100%;
+
+    padding: 14px 20px 20px;
+
+    display: none;
+
+    flex-direction: column;
+    align-items: stretch;
+
+    background: var(--nav-bg);
+
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .nav-links.active {
+    display: flex;
+
+    animation: menuSlide 0.3s ease;
+  }
+
+
+  /* Mobile links */
+
+  .nav-links a {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    font-size: 0.9rem;
+
+    border-radius: 2px;
+  }
+
+  .nav-links a:hover {
+    transform: translateX(5px);
+  }
+
+
+  /* Mobile active */
+
+  .nav-links a.active-link {
+    background: var(--surface);
+
+    border-left: 3px solid var(--accent);
+
+    padding-left: 12px;
+  }
+
+  .nav-links a.active-link::after {
+    display: none;
+  }
+
+
+  /* Toggle */
+
+  .theme-toggle-wrapper {
+    margin-left: auto;
+    margin-right: 10px;
+  }
+
+  .theme-toggle-wrapper .bb8-toggle {
+    font-size: 7px;
+  }
+
+
+  /* Hamburger animation */
+
+  .menu-button.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menu-button.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-button.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+}
+
+
+/* =========================================
+   MENU ANIMATION
+   ========================================= */
+
+@keyframes menuSlide {
+
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 500px) {
+
+  .navbar-container {
+    width: 90%;
+    min-height: 64px;
+  }
+
+  .navbar-logo img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .menu-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .theme-toggle-wrapper {
+    margin-right: 8px;
+  }
+
+  .theme-toggle-wrapper .bb8-toggle {
+    font-size: 6.5px;
+  }
+
+}

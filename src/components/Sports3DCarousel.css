@@ -1,0 +1,143 @@
+.sports-carousel-wrapper {
+  width: 100%;
+  height: 480px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1200px;
+}
+
+.sports-carousel-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.12);
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.sports-carousel-inner {
+  --w: 150px;
+  --h: 210px;
+  --translateZ: 300px;
+  --rotateX: -12deg;
+
+  position: absolute;
+  width: var(--w);
+  height: var(--h);
+  top: 25%;
+  left: calc(50% - (var(--w) / 2));
+
+  transform-style: preserve-3d;
+  transform: perspective(1200px);
+
+  animation: sportsCarouselRotate 24s linear infinite;
+}
+
+@keyframes sportsCarouselRotate {
+  from {
+    transform:
+      perspective(1200px)
+      rotateX(var(--rotateX))
+      rotateY(0deg);
+  }
+
+  to {
+    transform:
+      perspective(1200px)
+      rotateX(var(--rotateX))
+      rotateY(360deg);
+  }
+}
+
+.sports-carousel-card {
+  position: absolute;
+  inset: 0;
+
+  border: 2px solid rgba(37, 99, 235, 0.75);
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  transform:
+    rotateY(calc((360deg / var(--quantity)) * var(--index)))
+    translateZ(var(--translateZ));
+
+  background: #111827;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.45),
+    0 0 25px rgba(37, 99, 235, 0.15);
+}
+
+.sports-carousel-img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(37, 99, 235, 0.15) 0%,
+      rgba(15, 23, 42, 0.7) 80%,
+      rgba(8, 13, 22, 0.95) 100%
+    );
+
+  transition: transform 0.4s ease;
+}
+
+.sports-carousel-card:hover .sports-carousel-img {
+  transform: scale(1.08);
+}
+
+.sports-carousel-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 35px 12px 15px;
+
+  background: linear-gradient(
+    transparent,
+    rgba(0, 0, 0, 0.9)
+  );
+
+  text-align: center;
+}
+
+.sports-carousel-overlay span {
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+@media (max-width: 768px) {
+  .sports-carousel-wrapper {
+    height: 400px;
+  }
+
+  .sports-carousel-inner {
+    --w: 120px;
+    --h: 175px;
+    --translateZ: 240px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sports-carousel-wrapper {
+    height: 350px;
+  }
+
+  .sports-carousel-inner {
+    --w: 105px;
+    --h: 150px;
+    --translateZ: 210px;
+  }
+}
